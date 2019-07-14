@@ -1,0 +1,107 @@
+section {
+  background-color: $color-1;
+  padding: cre(80px) cre(20px);
+
+  &:nth-child(odd) {
+    background-color: transparent;
+  }
+
+  h2 {
+    text-align: center;
+  }
+
+  >.container {
+    max-width: 612px;
+  }
+}
+
+// About Section
+// =============================
+.about-me {
+
+}
+
+// Skills Section
+// =============================
+.skill-sets {
+
+  h2 {
+    margin-bottom: cre(40px);
+  }
+
+  .container {
+
+    > p:first-child {
+      text-align: center;
+    }
+  }
+}
+
+.skillbar {
+  background-color: $color-3;
+  margin-bottom: cre(20px);
+
+  .skill {
+    padding: cre(10px) 0;
+    overflow: hidden;
+    transition: 0.5s ease;
+
+    span {
+      font-size: 0.9rem;
+      background-color: darken($html-color, 10%);
+      color: white;
+      padding: cre(16px) cre(20px);
+    }
+  }
+}
+
+.html {
+  background-color: $html-color;
+  width: 90%;
+}
+
+.css {
+  background-color: $css-color;
+  width: 80%;
+}
+
+.sass {
+  background-color: $sass-color;
+  width: 85%;
+}
+
+.javascript {
+  background-color: $js-color;
+  width: 75%;
+}
+
+.jquery {
+  background-color: $jquery-color;
+  width: 75%;
+}
+
+
+// Projects Section
+// =============================
+.projects {
+
+  .container {
+    max-width: 1100px;
+  }
+}
+
+.project-items {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+
+  .project-item {
+    flex: 1;
+    max-width: 250px;
+
+    img {
+      max-width: 250px;
+      height: auto;
+    }
+  }
+}
