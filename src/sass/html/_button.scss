@@ -1,11 +1,13 @@
 .button-cta {
+  display: inline-block;
   font-size: 0.9rem;
   font-weight: 600;
   letter-spacing: 1px;
   text-transform: uppercase;
   border: 1px solid $color-5;
   color: $color-5;
-  padding: 1rem 2rem;
+  padding: 0.5rem 2rem;
+  transform: scale(1);
   transition: 0.3s;
 
   &:focus,
@@ -14,6 +16,8 @@
     border-color: $color-5;
     color: black;
     text-decoration: none;
+    transform: scale(1.06);
+    // box-shadow: 0px 0px 5px rgba(0,0,0,0.1);
   }
 }
 
@@ -27,6 +31,7 @@
   color: black;
   padding: 0.5rem 2rem;
   text-transform: uppercase;
+  transform: scale(1);
   transition: 0.3s ease;
 
   &:focus,
@@ -34,5 +39,6 @@
     background-color: darken($color-5, 5%);
     color: black;
     text-decoration: none;
+    transform: scale(1.06);
   }
 }
