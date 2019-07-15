@@ -1,6 +1,5 @@
 #master-header {
-  background-color: rgba(0,0,0, 0.75);
-  // box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.1);
+  background-color: rgba(16,27,45, 0.25);
   color: white;
   padding: 1rem;
   position: fixed;
@@ -18,8 +17,7 @@
   }
 
   &.darken {
-    background-color: rgba(0,0,0,1);
-    background-color: #39b54a;
+    background-color: rgba(16,27,45,1);
   }
 }
 
