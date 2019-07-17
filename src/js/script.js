@@ -12,7 +12,8 @@ jQuery(function($) {
 
     init: function() {
       this.headerOpacity(),
-      this.scrollDown();
+      this.scrollDown(),
+      this.scrollUp();
     },
 
     // Header Opacity Transition
@@ -33,9 +34,23 @@ jQuery(function($) {
     // Hero Scroll Down Arrow
     // ==============================================
     scrollDown: function() {
-      $(".scroll-down").click(function() {
+      var $heroHeight = $('.hero-treatment').height();
+
+      $(".scroll-down").on('click', function() {
         $('html, body').animate({
             scrollTop: $(".about-me").offset().top
+        }, 1000);
+      });
+    },
+
+    // Scroll Up Button
+    // ==============================================
+    scrollUp: function() {
+      var $heroHeight = $('.hero-treatment').height();
+
+      $(".scroll-up").on('click', function() {
+        $('html, body').animate({
+            scrollTop: 0
         }, 1000);
       });
     }
