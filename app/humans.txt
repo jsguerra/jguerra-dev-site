@@ -1,0 +1,11 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+
+    <Jose Guerra> -- <developer> -- <@joseguerrauk>
+
+# TECHNOLOGY COLOPHON
+
+    CSS3, HTML5, Javascript,
+    Apache Server Configs, jQuery, reboot.css
