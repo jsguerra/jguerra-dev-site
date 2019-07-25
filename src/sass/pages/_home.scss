@@ -1,5 +1,7 @@
 // About me section
 // =========================
+@import 'home/_01_about';
+
 .about-me {
   padding: cre(100px) 0;
 
@@ -79,6 +81,8 @@
 
 // My skills section
 // =========================
+@import 'home/_02_skills';
+
 .skills {
   background-color: $color-2;
   padding: cre(80px) 0;
@@ -209,6 +213,8 @@
 
 // Learning section
 // =========================
+@import 'home/_03_learn';
+
 .learning {
   padding: cre(200px) 0;
 
@@ -267,6 +273,8 @@
 
 // CTA section
 // =========================
+@import 'home/_04_cta';
+
 .cta-section {
   display: flex;
   flex-flow: row;
@@ -295,6 +303,8 @@
 
 // Projects section
 // =========================
+@import 'home/05_projects';
+
 .projects {
   padding: cre(80px) 0;
   text-align: center;
