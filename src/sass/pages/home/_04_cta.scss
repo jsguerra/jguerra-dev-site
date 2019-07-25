@@ -1,0 +1,24 @@
+.cta-section {
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  align-items: center;
+  background-image: url('/images/jose-guerra-typing.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+  padding: 2rem 0;
+  min-height: cre(300px);
+  position: relative;
+
+  &::before {
+    content: '';
+    background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.45), rgba(0,0,0,0.5));
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}
