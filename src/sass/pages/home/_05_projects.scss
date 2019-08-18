@@ -72,15 +72,22 @@
     }
   } // .project-content
 
-  .project-figure {
+  .project-image {
     flex: 1;
     max-width: 50%;
+
+    img {
+      object-fit: cover;
+      height: 100%;
+      max-height: cre(766px);
+    }
   }
 
   .project-details {
     flex: 1;
     max-width: 50%;
     text-align: left;
+    padding: cre(20px) cre(60px);
   }
 
   .project-close {
