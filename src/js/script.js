@@ -123,6 +123,9 @@ jQuery(function($) {
       $projectOpen.on('click', function() {
         $(this).parent().find('.project-content').addClass('zoomOut');
         $(this).parent().find('.project-content').removeClass('zoomIn');
+        var $coordinates = $('#master-header').offset();
+        console.log($coordinates);
+        $(this).parent().find('.project-content').css('top', ($coordinates.top + 69) + 'px');
       });
 
       $projectClose.on('click', function() {
