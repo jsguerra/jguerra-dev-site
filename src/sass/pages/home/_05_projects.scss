@@ -3,151 +3,185 @@
   text-align: center;
   // position: relative;
 
-  .container {
+  .project__grid {
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
-    max-width: cre(620px);
+    margin-left: auto;
+    margin-right: auto;
+    max-width: cre(960px);
+    padding-top: cre(40px);
   }
 }
 
 // The individual project item
 // ========================================
-.project-item {
-  flex: 1 0 auto;
-  background-color: rgba($color-5, 1);
-  box-shadow: 0 0 5px 0 rgba(0,0,0,.1);
-  max-width: cre(300px);
-  max-height: 0;
-  margin-bottom: cre(20px);
-  min-height: cre(225px);
-  padding: 2rem;
-  transition: 0.7s ease;
+.project__item {
+  box-shadow: 0 0 10px 0 rgba(0,0,0,.1);
+  margin-bottom: cre(30px);
+  overflow: hidden;
   position: relative;
+  transition: 0.5s ease;
 
-  &:hover {
-
-    .project-thumbnail {
-      opacity: 0.15;
-    }
-  }
-
-  h3 {
-    position: relative;
-    z-index: 1;
-  }
-
-  .project-thumbnail {
-    position: absolute;
-    top: 0;
-    left: 0;
-    opacity: 0;
-    transition: 0.5s;
-  }
-
-  .project-open {
-    font-size: 0;
-    background-color: transparent;
-    border: 0;
-    position: relative;
-    width: 50px;
-    height: 50px;
-    transition: 0.5s ease;
-
-    &:hover {
-      transform: rotate(360deg);
-    }
-
-    &::before {
-      content: '';
-      font-size: cre(32px);
-      @include font-icon('\e906');
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-    }
-  }
-
-  .project-content {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
-    align-items: center;
-    background-color: $color-5;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1;
-    opacity: 0;
-    visibility: hidden;
-    transition: transform 2s ease;
-
-    &.zoomOut {
-      // animation: zoomOut 0.5s;
-      // animation-fill-mode: forwards;
-      opacity: 1;
-      visibility: visible;
-      transform: translate3d(0,0,0);
-    }
-
-    &.zoomIn {
-      // animation: zoomIn 0.5s;
-      // animation-fill-mode: forwards;
-      transform: translate3d(-100%,0,0);
-    }
-  } // .project-content
-
-  .project-image {
-    flex: 1;
-    max-width: 50%;
-    height: 100%;
+  a {
+    transition: 0.3s;
 
     img {
-      object-fit: cover;
-      height: 100%;
-      // max-height: cre(766px);
+      transform: scale(1);
+      transition: 0.5s;
+    }
+
+    &:focus,
+    &:hover {
+
+      img {
+        transform: scale(0.9);
+      }
     }
   }
 
-  .project-details {
-    flex: 1;
-    max-width: 50%;
-    text-align: left;
-    padding: cre(20px) cre(60px);
+  figure {
+    margin-bottom: 0;
   }
+}
 
-  .project-close {
-    background-color: transparent;
-    border: 0;
-    position: absolute;
-    top: cre(20px);
-    right: cre(20px);
-  }
-} // .project-item 
+
+
+// .project-item {
+//   flex: 1 0 auto;
+//   background-color: rgba($color-5, 1);
+//   box-shadow: 0 0 5px 0 rgba(0,0,0,.1);
+//   max-width: cre(300px);
+//   max-height: 0;
+//   margin-bottom: cre(20px);
+//   min-height: cre(225px);
+//   padding: 2rem;
+//   transition: 0.7s ease;
+//   position: relative;
+
+//   &:hover {
+
+//     .project-thumbnail {
+//       opacity: 0.15;
+//     }
+//   }
+
+//   h3 {
+//     position: relative;
+//     z-index: 1;
+//   }
+
+//   .project-thumbnail {
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     opacity: 0;
+//     transition: 0.5s;
+//   }
+
+//   .project-open {
+//     font-size: 0;
+//     background-color: transparent;
+//     border: 0;
+//     position: relative;
+//     width: 50px;
+//     height: 50px;
+//     transition: 0.5s ease;
+
+//     &:hover {
+//       transform: rotate(360deg);
+//     }
+
+//     &::before {
+//       content: '';
+//       font-size: cre(32px);
+//       @include font-icon('\e906');
+//       position: absolute;
+//       top: 50%;
+//       left: 50%;
+//       transform: translate(-50%, -50%);
+//     }
+//   }
+
+//   .project-content {
+//     display: flex;
+//     flex-flow: row wrap;
+//     justify-content: space-between;
+//     align-items: center;
+//     background-color: $color-5;
+//     width: 100%;
+//     height: 100%;
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     z-index: 1;
+//     opacity: 0;
+//     visibility: hidden;
+//     transition: transform 2s ease;
+
+//     &.zoomOut {
+//       // animation: zoomOut 0.5s;
+//       // animation-fill-mode: forwards;
+//       opacity: 1;
+//       visibility: visible;
+//       transform: translate3d(0,0,0);
+//     }
+
+//     &.zoomIn {
+//       // animation: zoomIn 0.5s;
+//       // animation-fill-mode: forwards;
+//       transform: translate3d(-100%,0,0);
+//     }
+//   } // .project-content
+
+//   .project-image {
+//     flex: 1;
+//     max-width: 50%;
+//     height: 100%;
+
+//     img {
+//       object-fit: cover;
+//       height: 100%;
+//       // max-height: cre(766px);
+//     }
+//   }
+
+//   .project-details {
+//     flex: 1;
+//     max-width: 50%;
+//     text-align: left;
+//     padding: cre(20px) cre(60px);
+//   }
+
+//   .project-close {
+//     background-color: transparent;
+//     border: 0;
+//     position: absolute;
+//     top: cre(20px);
+//     right: cre(20px);
+//   }
+// } // .project-item 
 
 // Keyframes
 // ===============================
-@keyframes zoomOut {
-  from {
-    opacity: 0;
-    transform: scale3d(0, 0, 0);
-  }
-  to {
-    opacity: 1;
-    transform: scale3d(1,1,1);
-  }
-}
+// @keyframes zoomOut {
+//   from {
+//     opacity: 0;
+//     transform: scale3d(0, 0, 0);
+//   }
+//   to {
+//     opacity: 1;
+//     transform: scale3d(1,1,1);
+//   }
+// }
 
-@keyframes zoomIn {
-  from {
-    opacity: 1;
-    transform: scale3d(1,1,1);
-  }
-  to {
-    opacity: 0;
-    transform: scale3d(0, 0, 0);
-  }
-}
+// @keyframes zoomIn {
+//   from {
+//     opacity: 1;
+//     transform: scale3d(1,1,1);
+//   }
+//   to {
+//     opacity: 0;
+//     transform: scale3d(0, 0, 0);
+//   }
+// }
