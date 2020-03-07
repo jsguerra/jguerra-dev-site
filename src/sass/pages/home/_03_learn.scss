@@ -1,5 +1,9 @@
 .learning {
-  padding: cre(200px) 0;
+  padding: 0 0 cre(60px);
+
+  @include breakpoint($bp-mobile) {
+    padding: cre(200px) 0;
+  }
 
   h2 {
     display: inline-block;
@@ -20,31 +24,43 @@
 
   .container {
     display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-between;
+    flex-flow: column;
+
+    @include breakpoint($bp-mobile) {
+      flex-flow: row nowrap;
+      justify-content: space-between;
+    }
   }
 
   .learning-left {
     width: 100%;
-    max-width: 48%;
     position: relative;
 
-    &::before {
-      content: '';
-      background-color: rgba($color-2, 0.6);
-      width: 110%;
-      height: calc(100% - 20px);
-      position: absolute;
-      bottom: -5%;
-      left: 5%;
+    @include breakpoint($bp-mobile) {
+      max-width: 48%;
+
+      &::before {
+        content: '';
+        background-color: rgba($color-2, 0.6);
+        width: 110%;
+        height: calc(100% - 20px);
+        position: absolute;
+        bottom: -5%;
+        left: 5%;
+      }
     }
   }
 
   .learning-right {
     width: 100%;
-    max-width: 46%;
+    padding: cre(20px);
     position: relative;
     z-index: 1;
+
+    @include breakpoint($bp-mobile) {
+      max-width: 46%;
+      padding: 0;
+    }
   }
 
   .post-image {

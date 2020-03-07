@@ -76,9 +76,14 @@
   .welcome {
     color: white;
     margin: auto;
+    padding: 0 cre(20px);
     text-align: center;
     position: relative;
     z-index: 1;
+
+    @include breakpoint($bp-mobile) {
+      padding: 0;
+    }
 
     .support-text {
       font-family: $font-family-1;
@@ -88,18 +93,26 @@
     }
 
     .lead-title {
-      font-size: cre(90px);
+      font-size: cre(60px);
       color: $color-5;
       line-height: 1.2;
       margin-bottom: 0;
       text-shadow: 1px 2px 10px rgba(0,0,0,0.45);
+
+      @include breakpoint($bp-mobile) {
+        font-size: cre(90px);
+      }
     }
 
     .lead-text {
       font-family: $font-family-1;
-      font-size: 1.5rem;
+      font-size: 1.4rem;
       text-shadow: 1px 2px 10px rgba(0,0,0,0.45);
       margin-bottom: cre(40px);
+
+      @include breakpoint($bp-mobile) {
+        font-size: 1.5rem;
+      }
     }
   } // .welcome
 } // .hero-treatment
