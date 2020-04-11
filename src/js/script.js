@@ -11,13 +11,15 @@ jQuery(function($) {
   HOME = {
 
     init: function() {
-      this.headerOpacity(),
-      this.heroParallax(),
-      this.scrollDown(),
-      this.scrollUp(),
-      // this.animations(),
-      this.mySkills(),
-      this.projectItem();
+      if ($('#home').length) {
+        this.headerOpacity(),
+        this.heroParallax(),
+        this.scrollDown(),
+        this.scrollUp(),
+        // this.animations(),
+        this.mySkills(),
+        this.projectItem();
+      }
     },
 
     // Header Opacity Transition
