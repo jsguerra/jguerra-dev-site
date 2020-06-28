@@ -100,11 +100,11 @@ jQuery(function($) {
 
     // Animate on scroll library
     // ==============================================
-    animations: function() {
-      AOS.init({
-        duration: 1000
-      });
-    },
+    // animations: function() {
+    //   AOS.init({
+    //     duration: 1000
+    //   });
+    // },
 
     // Add waypoints to skills section
     // ==============================================
