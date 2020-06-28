@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="en-US" class="no-js">
   <head>
     <!-- General meta tags needed-->
     <meta charset="utf-8">
@@ -44,6 +44,14 @@
     <link rel="stylesheet" href="css/lity.min.css">
     <link rel="stylesheet" href="css/style.min.css?v=202003071">
     
+    <!-- If javascript enabled remove no-js class -->
+    <script>
+      document.documentElement.classList.remove("no-js");
+    </script>
+
+    <!-- Feature detection -->
+    <script src="js/modernizr-custom.js"></script>
+
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-33763059-10"></script>
     <script>
@@ -95,7 +103,11 @@
           </div>
           <div class="about-me-right">
             <figure class="profile-image">
-              <img src="images/about-jose-guerra.jpg" alt="Jose Guerra front end developer" />
+              <picture>
+                <source srcset="images/about-jose-guerra.webp" type="image/webp">
+                <source srcset="images/about-jose-guerra.jpg" type="image/jpeg">
+                <img loading="lazy" width="506" height="559" src="images/about-jose-guerra.jpg" alt="Jose Guerra front end developer" />
+              </picture>
             </figure>
           </div>
         </div> <!-- .container -->
@@ -163,7 +175,11 @@
         <div class="container">
           <div class="learning-left">
             <figure class="post-image">
-              <img src="images/jose-guerra-studying.jpg" alt="Jose Guerra studying javascript" />
+              <picture>
+                <source srcset="images/jose-guerra-studying.webp" type="image/webp">
+                <source srcset="images/jose-guerra-studying.jpg" type="image/jpeg">
+                <img loading="lazy" width="528" height="296" src="images/jose-guerra-studying.jpg" alt="Jose Guerra studying javascript" />
+              </picture>
             </figure>
           </div>
           <div class="learning-right">
@@ -247,6 +263,8 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/smoothscroll/1.4.9/SmoothScroll.min.js"></script>
   <!-- <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script> -->
   <script src="js/jquery.waypoints.min.js"></script>
+
+  <!-- Lightweight, accessible and responsive lightbox -->
   <script src="js/lity.min.js"></script>
   <script src="js/main.min.js?v=20200307"></script>
   </body>
