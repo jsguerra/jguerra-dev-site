@@ -1,81 +1,133 @@
-// Load Gulp
+// Set Gulp variables
 const { src, dest, watch, series, parallel } = require('gulp');
 
-// CSS related plugins
+// Set style variables
 const sass = require('gulp-sass'),
-      cssnano = require('cssnano'),
+      cssnano = require("cssnano"),
       postcss = require('gulp-postcss'),
       autoprefixer = require('autoprefixer'),
       sourcemaps = require('gulp-sourcemaps');
 
-// JS related plugins
-const uglify = require('gulp-uglify');
+// Set sass compiler
+sass.compiler = require('node-sass');
 
-// Utility plugins
-const rename = require('gulp-rename'),
-      concat = require('gulp-concat'),
-      replace = require('gulp-replace');
-
-// Browers related plugins
+// Set js variables
+const babel = require('gulp-babel'),
+      rename = require('gulp-rename'),
+      uglify = require('gulp-uglify'),
+      imagemin = require('gulp-imagemin');
+  
+// Set browser sync variable
 const browserSync = require('browser-sync').create();
 
-// File paths
-const filePaths = {
-  srcSass: 'src/sass',
-  srcCss: 'src/css',
-  srcJs: 'src/js',
-  destCss: 'app/css',
-  destJs: 'app/js',
-  destFolder: 'app'
-}
+// Setup file paths
+const source = './src',
+      scss = source + '/sass/',
+      js = source + '/js/',
+      imgSrc = source + '/images/',
+      fontSrc = source + '/fonts/',
+      app = './app';
 
-
-// Sass task: compiles the style.scss file into style.css
-function scssTask() {
-  return src(filePaths.srcSass + '/**/*.scss')
+// Styles task
+const styles = (cb) => {
+  return src(scss + '**/*.scss')
     .pipe(sourcemaps.init())
     .pipe(sass({
       outputStyle: 'expanded',
       indentType: 'tab',
       indentWidth: '1'
-    })
-    .on('error', sass.logError))
-    .pipe(postcss([ autoprefixer('last 2 versions', '> 1%'), cssnano() ]))
-    .pipe(dest(filePaths.srcCss))
-    .pipe(rename({ suffix: '.min' }))
+    }).on('error', sass.logError))
+    .pipe(
+      postcss(
+        [
+          autoprefixer('last 2 versions', '> 1%'),
+          cssnano()
+        ]
+      ))
     .pipe(sourcemaps.write())
-    .pipe(dest(filePaths.destCss))
-    .pipe(browserSync.stream()
-  );
+    .pipe(dest(app))
+    .pipe(browserSync.stream())
+
+  cb();
 }
 
-// JS task: 
-function jsTask() {
-  return src(filePaths.srcJs + '/**/*.js')
+// Javascript task
+const scripts = (cb) => {
+  return src(js + '**/*.js')
     .pipe(sourcemaps.init())
-    .pipe(concat('main.js'))
+    .pipe(babel({
+      presets: [
+        [
+          '@babel/env',
+          {
+            "useBuiltIns": "usage",
+            "corejs": "3",
+            "targets": {
+              "browsers": [
+                "last 5 versions",
+                "ie >= 8"
+              ]
+            }
+          }
+        ]
+      ]
+    }))
+    .pipe(sourcemaps.write())
     .pipe(uglify())
     .pipe(rename({suffix: '.min'}))
-    .pipe(sourcemaps.write())
-    .pipe(dest(filePaths.destJs))
-    .pipe(browserSync.stream()
-  );
+    .pipe(dest(app + '/js/'))
+
+  cb();
 }
 
-// Watch task
-function watchTask() {
+// Images task
+const imageTask = (cb) => {
+  return src(imgSrc + '*')
+    .pipe(imagemin())
+    .pipe(dest(app + '/images/'));
+
+  cb();
+}
+
+// Fonts task
+const fontTask = (cb) => {
+  return src(fontSrc + '*')
+    .pipe(dest(app + '/fonts/'));
+    
+  cb();
+}
+
+// HTML task
+const htmlTask = (cb) => {
+  return src(source + '/**/*.html')
+    .pipe(dest(app));
+
+  cb();
+}
+
+// Server task
+const startServer = (cb) => {
   browserSync.init({
     server: {
       baseDir: 'app'
     }
-  });
-
-  watch([filePaths.srcSass + '/**/*.scss', filePaths.srcJs + '/**/*.js'], parallel(scssTask, jsTask));
-  watch(filePaths.destFolder + '**/*').on('change', browserSync.reload);
+  })
+  cb();
 }
 
-// Default task
+// Watch Task
+const watchTask = (cb) => {
+  watch([scss + '**/*.scss'], styles);
+  watch([js + '**/*.js'], scripts).on('change', browserSync.reload);
+  watch([imgSrc + '*'], imageTask).on('change', browserSync.reload);
+  watch([fontSrc + '*'], fontTask).on('change', browserSync.reload);
+  watch([source + '/**/*.html'], htmlTask).on('change', browserSync.reload);
+
+  cb();
+}
+
+// Exports
 exports.default = series(
-  parallel(scssTask, jsTask),
-  watchTask
+  parallel(styles, scripts, imageTask, fontTask, htmlTask),
+  parallel(startServer, watchTask)
 );
