@@ -13,12 +13,14 @@
 // ==============================
 @import
   'vendors/bootstrap-reboot',
-  'base/typography';
+  'base/typography',
+  'components/icons';
 
 // ==============================
 // 03 Components
 // ==============================
 @import
+  'components/button',
   'components/hero';
 
 // ==============================
