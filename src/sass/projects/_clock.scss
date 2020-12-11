@@ -1,0 +1,79 @@
+#analogClock {
+  display: -ms-grid;
+  display: grid;
+  justify-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-image: url("images/clock3.png"), linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  border: 10px solid black;
+  border-radius: 50%;
+  -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5), 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+          box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5), 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+  width: 35rem;
+  height: 35rem;
+
+  > * {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+    grid-area: 1 / 1;
+  }
+
+  .second,
+  .minute,
+  .hour {
+    border-radius: 10px;
+    -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.35);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.35);
+    position: relative;
+    -webkit-transform-origin: left;
+            transform-origin: left;
+  }
+
+  .second {
+    background-color: #E83151;
+    height: 2px;
+    width: 14rem;
+    top: 0;
+    left: 7rem;
+    -webkit-transform: rotate(var(--seconds));
+            transform: rotate(var(--seconds));
+    z-index: 2;
+  }
+
+  .minute {
+    background-color: goldenrod;
+    height: 5px;
+    width: 14rem;
+    top: 0;
+    left: 7rem;
+    -webkit-transform: rotate(var(--minutes));
+            transform: rotate(var(--minutes));
+    z-index: 1;
+  }
+  
+  .hour {
+    background-color: plum;
+    height: 8px;
+    width: 7.5rem;
+    top: 0;
+    left: 3.8rem;
+    -webkit-transform: rotate(var(--hours));
+            transform: rotate(var(--hours));
+  }
+  
+  .center {
+    -webkit-box-shadow: 0 0 10px #222;
+            box-shadow: 0 0 10px #222;
+    width: 2rem;
+    height: 2rem;
+    background-color: #E83151;
+    border: 5px solid #FFF;
+    border-radius: 50%;
+    position: relative;
+    z-index: 100;
+  }
+}
