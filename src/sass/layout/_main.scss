@@ -1,8 +1,7 @@
 #main {
 
   > div:not(.hero),
-  > section {
+  > section:not(.section-2) {
     background-color: white;
-    padding: 2rem;
   }
 }
